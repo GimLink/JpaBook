@@ -1,22 +1,33 @@
 package Link.JpaBook.start;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Date;
 
 @Entity
 @Table(name="MEMBER")
 @Data
 public class Member {
     @Id
-    @Column
+    @Column(name = "ID")
     private String id;
 
-    @Column(name="NAME")
+    @Column(name="NAME", nullable = false, length = 10)
     private String username;
 
     private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
+
+    @Lob
+    private String description;
 
 }
