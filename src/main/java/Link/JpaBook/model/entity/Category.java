@@ -1,5 +1,6 @@
 package Link.JpaBook.model.entity;
 
+import Link.JpaBook.model.entity.item.Item;
 import jakarta.persistence.*;
 import lombok.Data;
 
